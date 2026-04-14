@@ -13,3 +13,10 @@ datasource db {
   url  	    = env("DATABASE_URL")
 }
 
+model User {
+  id int @id @default(autoincrement())
+  externalId String @unique
+  attributes Json
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
